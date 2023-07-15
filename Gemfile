@@ -50,7 +50,7 @@ gem "sassc-rails"
 gem "bootstrap"
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
-
+gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
