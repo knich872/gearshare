@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :products, only: [:index, :show]
+  namespace :owners do
+    resources :bookings, only: :index
+    # equivalent to => get '/owners/bookings', to: 'owners/bookings#index'
+  end
 end
