@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.text :description
       t.integer :photos
       t.float :rental_price_day
-      t.integer :caterogy
+      t.integer :category
 
       t.timestamps
     end
