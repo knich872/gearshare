@@ -1,11 +1,24 @@
-<h1>Poducts#index</h1>
-<p>Find me in app/views/poducts/index.html.erb</p>
+<div class="container my-2">
+  <h1>Available products in your area</h1>
+  <p><em>click for more details</em></p>
+  <div class="d-flex justify-content-around m-4 p-4">
+    <%= link_to "", products_path, class: "fa-solid fa-camera-retro fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-shirt fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-blender-phone fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-gem fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-baseball-bat-ball fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-sharp fa-solid fa-campground fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-cake-candles fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-bicycle fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-hammer fa-3x btn" %>
+    <%= link_to "", products_path, class: "fa-solid fa-baby-carriage fa-3x btn" %>
+  </div>
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="row d-flex flex-wrap">
+    <% @products.each do |product| %>
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10 my-4">
+        <%= render product %>
+      </div>
+    <% end %>
   </div>
 </div>
