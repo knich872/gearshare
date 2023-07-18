@@ -7,7 +7,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :new, :create] do
+    resources :bookings, only: [:new, :create]
+  end
+
+  # a regular user can see the bookings they've made
+  resources :bookings, only: [:show, :index]
+
+  # an owner can see all the bookings for their products
   namespace :owners do
     resources :bookings, only: :index
     # equivalent to => get '/owners/bookings', to: 'owners/bookings#index'
