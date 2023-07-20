@@ -4,6 +4,6 @@
     <h5 class="card-title"><%= product.name %></h5>
     <p class="card-text"><%= product.description %></p>
     <p class="card-text text-muted">$<%= product.rental_price_day %> per day</p>
-    <a href="#" class="btn btn-primary">View this product</a>
+    <%= link_to "View this product", product_path(product), class: "btn btn-primary" %>
   </div>
 </div>
