@@ -26,7 +26,7 @@
               <%= link_to "My Product Bookings", owners_bookings_path, class: "dropdown-item" %>
               <%= link_to "Messages", products_path, class: "dropdown-item" %>
               <li><hr class="dropdown-divider"></li>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" }, class: "dropdown-item" %>
             </ul>
           </li>
           <%= image_tag "https://ca.slack-edge.com/T02NE0241-U023W9B11CH-87d2e1927a7e-192", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
