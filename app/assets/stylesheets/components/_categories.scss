@@ -1,4 +1,4 @@
-.btn {
+.btn-icon {
   display :inline-block;
   font-size:30pt;
   padding :12px 12px;
@@ -11,7 +11,7 @@
   transition: .3s;
 }
 
-.btn:hover {
+.btn-icon:hover {
   box-shadow: 0 10px 10px rgba(0,0,0,.1);
   color: rgb(129, 127, 127);
   transform: scale(1.3);

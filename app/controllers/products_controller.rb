@@ -46,7 +46,10 @@ class ProductsController < ApplicationController
     @products = Product.where(category: 'baby')
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+    @bookings = @product.bookings
+  end
 
   def new
     @product = Product.new()

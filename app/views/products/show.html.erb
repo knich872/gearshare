@@ -17,11 +17,11 @@
           <% @product.photos.each_with_index do |photo, index| %>
             <% if index == 0 %>
               <div class="gallery-img-1">
-                <%= cl_image_tag photo.key, crop: :fill %>
+                <%#= cl_image_tag photo.key, crop: :fill %>
               </div>
             <% elsif index <= 4%>
               <div>
-                <%= cl_image_tag photo.key, crop: :fill %>
+                <%#= cl_image_tag photo.key, crop: :fill %>
               </div>
             <% end %>
           <% end %>
@@ -32,7 +32,16 @@
             <h2>Details</h2>
             <p>Borrow from <strong><%= @product.user.email %></strong></p>
           </div>
-            <form class="check-form col-4">
+          <div class="check-form col-4">
+            <%= simple_form_for [@product, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        </div>
+
+            <form class="check-form">
               <div>
                   <label>Start Date</label>
                   <input type="text" placeholder="Add date">
@@ -43,8 +52,6 @@
               </div>
               <button type="submit">Rent It!</button>
           </form>
-
-        </div>
 
         </div>
         <hr class="line">
