@@ -17,32 +17,44 @@
           <% @product.photos.each_with_index do |photo, index| %>
             <% if index == 0 %>
               <div class="gallery-img-1">
-                <%= cl_image_tag photo.key, crop: :fill %>
+                <%#= cl_image_tag photo.key, crop: :fill %>
               </div>
             <% elsif index <= 4%>
               <div>
-                <%= cl_image_tag photo.key, crop: :fill %>
+                <%#= cl_image_tag photo.key, crop: :fill %>
               </div>
             <% end %>
           <% end %>
         </div>
-        <div class="small-details">
+        <div>
+          <div class="row">
+            <div class="small-details col-8">
             <h2>Details</h2>
-            <p><%= @product.description %></p>
-            <h4>$ <%= @product.rental_price_day %> / day</h4>
+            <p>Borrow from <strong><%= @product.user.email %></strong></p>
+          </div>
+          <div class="check-form col-4">
+            <%= simple_form_for [@product, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.submit %>
+            <% end %>
+          </div>
+        </div>
+
+            <form class="check-form">
+              <div>
+                  <label>Start Date</label>
+                  <input type="text" placeholder="Add date">
+              </div>
+              <div>
+                  <label>End Date</label>
+                  <input type="text" placeholder="Add date">
+              </div>
+              <button type="submit">Rent It!</button>
+          </form>
+
         </div>
         <hr class="line">
-        <form class="check-form">
-            <div>
-                <label>Start Date</label>
-                <input type="text" placeholder="Add date">
-            </div>
-            <div>
-                <label>End Date</label>
-                <input type="text" placeholder="Add date">
-            </div>
-            <button type="submit">Rent It!</button>
-        </form>
 
         <div class="map">
             <h3>Location on map</h3>
