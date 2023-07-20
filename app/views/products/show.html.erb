@@ -15,23 +15,28 @@
             <div><img src="https://img.ponparemall.net/imgmgr/41/00112541/0/hu2/1050020597.jpg?ver=1"></div>
             <div><img src="https://www.imaging-resource.com/PRODS/D700/ZYFRONT-LG.JPG"></div>
         </div>
-        <div class="small-details">
+        <div>
+          <div class="row">
+            <div class="small-details col-8">
             <h2>Details</h2>
-            <p><%= @product.description %></p>
-            <h4>$ <%= @product.rental_price_day %> / day</h4>
+            <p>Borrow from <strong><%= @product.user.email %></strong></p>
+          </div>
+            <form class="check-form col-4">
+              <div>
+                  <label>Start Date</label>
+                  <input type="text" placeholder="Add date">
+              </div>
+              <div>
+                  <label>End Date</label>
+                  <input type="text" placeholder="Add date">
+              </div>
+              <button type="submit">Rent It!</button>
+          </form>
+
+        </div>
+
         </div>
         <hr class="line">
-        <form class="check-form">
-            <div>
-                <label>Start Date</label>
-                <input type="text" placeholder="Add date">
-            </div>
-            <div>
-                <label>End Date</label>
-                <input type="text" placeholder="Add date">
-            </div>
-            <button type="submit">Rent It!</button>
-        </form>
 
         <div class="map">
             <h3>Location on map</h3>
