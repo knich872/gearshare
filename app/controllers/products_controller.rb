@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  # [:cameras, :clothes, :appliances, :jewelry, :sports, :outdoors, :events, :transportation, :tools, :baby]
+  def cameras
+    @products = Product.where(category: 'cameras')
+  end
+
   def show; end
 
   def new
