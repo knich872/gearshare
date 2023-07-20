@@ -14,17 +14,17 @@
             <div><img src="https://camera10.me/blog/wp-content/uploads/2020/06/20200612-DSCF8283-3-1776x1184.jpg"></div>
             <div><img src="https://img.ponparemall.net/imgmgr/41/00112541/0/hu2/1050020597.jpg?ver=1"></div>
             <div><img src="https://www.imaging-resource.com/PRODS/D700/ZYFRONT-LG.JPG"></div> %>
-        <% @product.photos.each_with_index do |photo, index| %>
-          <% if index == 0 %>
-            <div class="gallery-img-1">
-              <%= cl_image_tag photo.key, crop: :fill %>
-            </div>
-          <% else %>
-            <div>
-              <%= cl_image_tag photo.key, crop: :fill %>
-            </div>
+          <% @product.photos.each_with_index do |photo, index| %>
+            <% if index == 0 %>
+              <div class="gallery-img-1">
+                <%= cl_image_tag photo.key, crop: :fill %>
+              </div>
+            <% elsif index <= 4%>
+              <div>
+                <%= cl_image_tag photo.key, crop: :fill %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
         <div class="small-details">
             <h2>Details</h2>
