@@ -50,29 +50,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px 50px;
+  padding: 16px 16px;
 }
-.check-form label{
-  display: block;
-}
-.check-form div{
-  padding: 20px;
-}
-.check-form input{
-  background: transparent;
-  border: 0;
-  outline: none;
-}
-.check-form button{
-  background: #595959;
-  border: 0;
-  outline: none;
-  color: #fff;
-  padding: 18px;
-  width: 350px;
-  border-radius: 8px;
-  font-size: 16px;
-}
+
 .map{
   margin: 50px 0;
 }
