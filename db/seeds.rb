@@ -20,18 +20,18 @@
 # puts "Finished!"
 
 puts "Cleaning database..."
-Product.destroy_all
+User.destroy_all
 
-puts "Creating Products..."
+puts "Creating Users..."
 
 20.times do
-  product = Product.create!(
-    name: "Camera"
-    description: "A camera is an optical instrument used to capture and store images or videos, either digitally via an electronic image sensor, or chemically via a light-sensitive material such as photographic film. As a pivotal technology in the fields of photography and videography,",
-  　rental_price_day: "2",
-    category:  ["cameras" ,"clothe", "appliances", "jewelry", "sports", "outdoors", "events", "transportation" ,"tools", "baby" ]
+  user = User.create!(
+    user_name: Faker::Name.name,
+    location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+    email: Faker::Internet.email,
+    password: "0123456",
   )
-  puts "Product with id :#{product.id} has been created"
+  puts "User with id :#{user.id} has been created"
 
 end
 
