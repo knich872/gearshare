@@ -1,17 +1,58 @@
 <div class="container my-2">
   <h1>Available products in your area</h1>
   <p><em>click for more details</em></p>
-  <div class="d-flex justify-content-around m-4 p-4">
-    <%= link_to "", products_path, class: "fa-solid fa-camera-retro fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-shirt fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-blender-phone fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-gem fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-baseball-bat-ball fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-sharp fa-solid fa-campground fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-cake-candles fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-bicycle fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-hammer fa-3x btn" %>
-    <%= link_to "", products_path, class: "fa-solid fa-baby-carriage fa-3x btn" %>
+  <div class="d-flex justify-content-around m-6 p-6">
+    <%# <%= link_to your_path do %>
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class="fa-solid fa-camera-retro"></i>
+    <div class = "category_name">Filming</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class="ffa-solid fa-shirt"></i>
+    <div class = "category_name">Clothes</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class="fa-solid fa-blender-phone"></i>
+    <div class = "category_name">Phone</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class="fa-solid fa-gem"></i>
+    <div class = "category_name">Jewelry</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class="fa-solid fa-baseball-bat-ball"></i>
+    <div class = "category_name">Sports</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class="fa-sharp fa-solid fa-campground"></i>
+    <div class = "category_name">Camping</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class= "fa-solid fa-cake-candles"></i>
+    <div class = "category_name">Party</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class= "fa-solid fa-bicycle"></i>
+    <div class = "category_name">Bicycle</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class= "fa-solid fa-hammer"></i>
+    <div class = "category_name">Repair</div></div>
+    </a>
+
+    <a href=""class="btn hvr-underline-from-center">
+      <div class="box"><i class= "fa-solid fa-baby-carriage"></i>
+    <div class = "category_name">Baby</div></div>
+    </a>
+    <%# <% end %>
   </div>
 
   <div class="row d-flex flex-wrap">
