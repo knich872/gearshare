@@ -31,27 +31,24 @@
             <div class="small-details col-8">
             <h2>Details</h2>
             <p>Borrow from <strong><%= @product.user.email %></strong></p>
+            <div class="rentor">
+                <img src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+                <div>
+                    <h2>Rent from Jimbo</h2>
+                </div>
+            </div>
           </div>
           <div class="check-form col-4">
-            <%= simple_form_for [@product, @booking] do |f| %>
+            <h3>¥<%= @product.rental_price_day %> </h3> day
+            <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
               <%= f.input :start_date %>
               <%= f.input :end_date %>
-              <%= f.submit %>
+              <%= f.submit class: "btn btn-primary" %>
             <% end %>
+            <hr>
+            <p>You won't be charged yet</p>
           </div>
         </div>
-
-            <form class="check-form">
-              <div>
-                  <label>Start Date</label>
-                  <input type="text" placeholder="Add date">
-              </div>
-              <div>
-                  <label>End Date</label>
-                  <input type="text" placeholder="Add date">
-              </div>
-              <button type="submit">Rent It!</button>
-          </form>
 
         </div>
         <hr class="line">
@@ -63,10 +60,4 @@
 
         <hr class="line">
 
-        <div class="rentor">
-            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier">
-            <div>
-                <h2>Rent from Jimbo</h2>
-            </div>
-        </div>
     </div>
