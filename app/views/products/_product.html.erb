@@ -3,8 +3,7 @@
 
   <div class="card-body">
     <h5 class="card-title"><%= product.name %></h5>
-    <p class="card-text"><%= product.description %></p>
-    <p class="card-text text-muted">$<%= product.rental_price_day %> per day</p>
+    <p class="card-text text-muted">¥<%= product.rental_price_day.to_i %> per day</p>
     <%= link_to "View this product", product_path(product), class: "btn btn-dark" %>
   </div>
 </div>
