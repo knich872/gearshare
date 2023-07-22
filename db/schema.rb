@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_035921) do
     t.bigint "user_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.string "status", default: "pending"
+    t.string "status", default: "0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_bookings_on_product_id"
@@ -57,7 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_035921) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "photos"
     t.float "rental_price_day"
     t.integer "category"
     t.datetime "created_at", null: false
