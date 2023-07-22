@@ -29,7 +29,7 @@
 
           </div>
           <div class="check-form col-4">
-            <h3>¥<%= @product.rental_price_day %> </h3> day
+            <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
             <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
               <%= f.input :start_date %>
               <%= f.input :end_date %>
