@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:filter].present?
+      @products = @products.where(category: params[:filter])
+    end
   end
 
   # get :cameras
