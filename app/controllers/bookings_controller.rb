@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, :notice => "Successfully created booking."
     else
-      render 'product/show'
+      render 'products/show'
     end
   end
 
