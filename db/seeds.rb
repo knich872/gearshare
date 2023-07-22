@@ -5,13 +5,22 @@ Booking.destroy_all
 Product.destroy_all
 User.destroy_all
 
+
 puts "Creating Users..."
+
+puts "Creating Test User..."
+User.create!(
+  user_name: "TestUser",
+  email: "test@gearshare.com",
+  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  password: "123456"
+)
 
 techguru = User.create!(
   user_name: "TechGuru",
   email: "techguru@gearshare.com",
   location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
-  password: "0123456"
+  password: "123456"
 )
 puts "User with id :#{techguru.id} has been created"
 
@@ -19,7 +28,7 @@ fashionprincess = User.create!(
   user_name: "FashionPrincess",
   email: "fashionPrincess@gearshare.com",
   location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
-  password: "0123456"
+  password: "123456"
 )
 puts "User with id :#{fashionprincess.id} has been created"
 
@@ -27,7 +36,7 @@ outdoorsguy = User.create!(
   user_name: "OutdoorsGuy",
   email: "outdoorsguy@gearshare.com",
   location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
-  password: "0123456"
+  password: "123456"
 )
 puts "User with id :#{outdoorsguy.id} has been created"
 
@@ -35,7 +44,7 @@ partykingdom = User.create!(
   user_name: "PartyKingdom",
   email: "partykingdom@gearshare.com",
   location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
-  password: "0123456"
+  password: "123456"
 )
 puts "User with id :#{partykingdom.id} has been created"
 
@@ -43,7 +52,7 @@ ababy = User.create!(
   user_name: "ABaby",
   email: "Ababy@gearshare.com",
   location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
-  password: "0123456"
+  password: "123456"
 )
 puts "User with id :#{ababy.id} has been created"
 
