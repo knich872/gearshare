@@ -1,5 +1,6 @@
 <div class="card shadow text-center rounded-3">
-  <%# cl_image_tag("#{product.photos.first}", width: 400, height: 300, crop: :fill) %>
+  <%= cl_image_tag("#{product.photos.first.key}", width: 250, height: 200, crop: :pad) %>
+
   <div class="card-body">
     <h5 class="card-title"><%= product.name %></h5>
     <p class="card-text"><%= product.description %></p>
