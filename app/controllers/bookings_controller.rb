@@ -11,8 +11,9 @@ class BookingsController < ApplicationController
     end
   end
 
-
   def index
+    @bookings = Booking.where(user: current_user)
+    # raise
   end
 
   private
