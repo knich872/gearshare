@@ -1,5 +1,17 @@
-<div class="card shadow text-center rounded-3">
-  <%= cl_image_tag("#{product.photos.first.key}", width: 250, height: 200, crop: :pad) %>
+<div class="card shadow text-center">
+  <div id="carouselExampleCrossfade" class="carousel slide carousel-fade p-1" data-bs-interval="3000" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag("#{product.photos.first.key}", width: 250, height: 200, crop: :fill, class: "rounded-2 d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+        <%= cl_image_tag("#{product.photos.second.key}", width: 250, height: 200, crop: :fill, class: "rounded-2 d-block w-100") %>
+      </div>
+      <div class="carousel-item">
+        <%= cl_image_tag("#{product.photos.third.key}", width: 250, height: 200, crop: :fill, class: "rounded-2 d-block w-100") %>
+      </div>
+    </div>
+  </div>
 
   <div class="card-body">
     <h5 class="card-title"><%= product.name %></h5>
@@ -7,3 +19,11 @@
     <%= link_to "View this product", product_path(product), class: "btn btn-dark" %>
   </div>
 </div>
+
+<%# <script>
+  $("#carouselExampleCrossfade").on("mouseenter",function() {
+    $(this).interval('3000');
+  }).on("mouseleave", function() {
+    $(this).carousel('pause');
+  });
+</script> %>
