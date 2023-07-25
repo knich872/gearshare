@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_keywords(params[:query])
+    end
     if params[:filter].present?
       @products = @products.where(category: params[:filter])
     end
