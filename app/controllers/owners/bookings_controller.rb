@@ -2,7 +2,9 @@ class Owners::BookingsController < ApplicationController
 
   # Action to show all bookings for the owner
   def index
-    @bookings = current_owner.bookings
+    # @bookings = Booking.where(user: current_user)
+    @owner = current_owner
+    @bookings = @owner.bookings
   end
 
   # Action to confirm a booking

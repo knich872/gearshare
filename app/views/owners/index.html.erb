@@ -1,0 +1,34 @@
+<div class="container my-2">
+  <h1>Bookings for <%= @owner.name %>'s Products</h1>
+  <div class="list-group">
+  <% if @bookings.any? %>
+    <% @bookings.each do |booking| %>
+      <% duration = booking.end_date - booking.start_date + 1 %>
+      <%= link_to product_path(booking.product), class: "list-group-item list-group-item-action", aria_current: "true" do %>
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= booking.product.name %></h5>
+          <small><%= booking.status %></small>
+        </div>
+        <p class="mb-1">Booked from <%= booking.start_date %> until <%= booking.end_date %></p>
+        <p class="mb-1">¥ <%= booking.product.rental_price_day %> x <%= duration.to_i %> days = <strong>¥ <%= booking.product.rental_price_day * duration %></strong></p>
+        <small><%= booking.product.category %></small>
+      <% end %>
+    <% else %>
+    <p>No bookings created for <%= @owner.name %>'s products.</p>
+    <% end %>
+  </div>
+</div>
+
+
+<h1>Bookings for <%= @owner.name %>'s Products</h1>
+
+<%= form_tag owners_bookings_path, method: :patch do %>
+  <h3>Update Status for Selected Bookings:</h3>
+  <% @bookings.each do |booking| %>
+    <%= check_box_tag "booking_ids[]", booking.id %>
+    <%= booking.id %>, <%= booking.description %>
+    <br>
+  <% end %>
+  <%= select_tag "status", options_for_select(Booking.statuses.keys) %>
+  <%= submit_tag "Update Status" %>
+<% end %>

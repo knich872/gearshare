@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   # an owner can see all the bookings for their products
   namespace :owners do
-    resources :bookings, only: :index
+    resources :bookings, only: [:index, :update]
     # equivalent to => get '/owners/bookings', to: 'owners/bookings#index'
   end
 end
