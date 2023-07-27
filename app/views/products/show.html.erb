@@ -28,15 +28,20 @@
             <p><%= @product.description %></p>
 
           </div>
-          <div class="check-form col-4">
+          <div class="check-form col-4" data-controller="booking-amount" data-rental-price-value="<%= @product.rental_price_day.to_i %>">
             <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
             <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
+              <%= f.input :start_date, data: { target: "booking-amount.startDate", action: "change->booking-amount#calculateAmount" } %>
+              <%= f.input :end_date, data: { target: "booking-amount.endDate", action: "change->booking-amount#calculateAmount" } %>
               <%= f.submit class: "btn btn-dark" %>
             <% end %>
             <hr>
-            <p>You won't be charged yet</p>
+            <div class="row">
+              <p>You won't be charged yet</p>
+            </div>
+            <div class="row">
+              <p>Total Amount: <span data-target="booking-amount.totalAmount">¥0</span></p>
+            </div>
           </div>
         </div>
 
