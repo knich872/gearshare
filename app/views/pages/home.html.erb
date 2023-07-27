@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div id="landing" class="container">
+    <div class="row justify-content-center my-4 py-4">
+      <div class="col-6 text-center my-4 py-4">
+        <h1 class="landing-title">Welcome to <i class="fa-solid fa-handshake-simple"></i><strong> Gear</strong>Share</h1>
+      </div>
+      <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search for products in your area",
+              id: "home-search"
+          %>
+        <%= submit_tag " Search ", name: "", class: "btn btn-round btn-home" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

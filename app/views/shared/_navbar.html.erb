@@ -1,5 +1,5 @@
 <div data-controller="navbar" data-action="scroll@window->navbar#stick">
-  <div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon px-3 sticky" data-navbar-target="bar">
+  <div class="navbar navbar-expand-sm navbar-dark navbar-lewagon px-3 sticky" data-navbar-target="bar">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-handshake-simple"></i> <strong>Gear</strong>Share
     <% end %>
@@ -32,7 +32,7 @@
           <%= image_tag "https://ca.slack-edge.com/T02NE0241-U023W9B11CH-87d2e1927a7e-192", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link active" %>
           </li>
         <% end %>
       </ul>
