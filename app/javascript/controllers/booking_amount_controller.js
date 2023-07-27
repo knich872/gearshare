@@ -1,5 +1,6 @@
 import { Controller } from "stimulus";
 
+// Connects to data-controller="booking-amount"
 export default class extends Controller {
   static targets = ["startDate", "endDate", "totalAmount"];
   static values = { rentalPrice: Number };
