@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.where(user: current_user)
+    # raise
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @product = Product.find(params[:product_id])
@@ -11,14 +16,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index
-    @bookings = Booking.where(user: current_user)
-    # raise
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to owners_bookings_path
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 end
