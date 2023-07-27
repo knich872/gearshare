@@ -8,11 +8,15 @@
       <%= f.input :category, collection: Product.categories.keys %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
+    <div class="row py-4">
+    <div class="d-flex justify-content-between pb-4">
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn" %>
+      </div>
+      <div>
+        <%= link_to "Back to products", products_path, class: "btn" %>
+      </div>
+    </div>
     </div>
   <% end %>
-  <div>
-    <%= link_to "Back to products", products_path %>
-  </div>
 </div>

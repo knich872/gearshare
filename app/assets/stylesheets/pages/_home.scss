@@ -9,12 +9,12 @@ body {
   height: 85vh;
 }
 
-.landing-title {
+h1 {
   color: #d55130;
   text-shadow: #798ea1 0 0 5px;
   font-size: 3rem;
 }
 
 .search {
-  background-color: #cee3f7;
+  background-color: $search-blue;
 }
