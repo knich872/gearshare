@@ -1,5 +1,4 @@
-<div class="card shadow text-center">
-
+<div class="card card-blue shadow text-center">
   <div id="carouselExampleCrossfade" class="carousel slide carousel-fade p-1" data-bs-interval="3000" data-bs-ride="carousel">
     <div class="carousel-inner">
       <% product.photos.each_with_index do |photo, index| %>
@@ -13,7 +12,7 @@
   <div class="card-body">
     <h5 class="card-title text-truncate"><%= product.name %></h5>
     <p class="card-text text-muted">¥<%= product.rental_price_day.to_i %> per day</p>
-    <%= link_to "View this product", product_path(product), class: "btn btn-dark" %>
+    <%= link_to "View this product", product_path(product), class: "btn" %>
   </div>
 </div>
 
