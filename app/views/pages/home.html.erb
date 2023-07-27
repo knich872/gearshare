@@ -7,11 +7,10 @@
       <%= form_with url: products_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
-              placeholder: "Search for products in your area",
-              id: "home-search"
+              class: "form-control search",
+              placeholder: "Search for products in your area"
           %>
-        <%= submit_tag " Search ", name: "", class: "btn btn-round btn-home" %>
+        <%= submit_tag " Search ", name: "", class: "btn" %>
       <% end %>
     </div>
   </div>
