@@ -424,7 +424,8 @@ big_bertha = Product.create!(
 
 big_bertha_photo_urls = [
   "https://friendwitha.com/media/CACHE/images/Screen_Shot_2019-07-02_at_6.25.37_AM.e0c4bbc92079.jpg",
-  "https://friendwitha.com/media/CACHE/images/Screen_Shot_2019-07-02_at_6.25.13_AM.b5412e5bdfe5.jpg"
+  "https://friendwitha.com/media/CACHE/images/Screen_Shot_2019-07-02_at_6.25.13_AM.b5412e5bdfe5.jpg",
+  "https://i.ebayimg.com/images/g/UosAAOSwrmdkeh9W/s-l1200.webp"
 ]
 
 big_bertha_photo_urls.each_with_index do |url, index|
