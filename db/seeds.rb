@@ -5,21 +5,20 @@ Booking.destroy_all
 Product.destroy_all
 User.destroy_all
 
-
 puts "Creating Users..."
 
 puts "Creating Test User..."
 User.create!(
   user_name: "TestUser",
   email: "test@gearshare.com",
-  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  location: ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Fukuoka", "Okinawa"].sample,
   password: "123456"
 )
 
 techguru = User.create!(
   user_name: "TechGuru",
   email: "techguru@gearshare.com",
-  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  location: ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Fukuoka", "Okinawa"].sample,
   password: "123456"
 )
 puts "User with id :#{techguru.id} has been created"
@@ -27,7 +26,7 @@ puts "User with id :#{techguru.id} has been created"
 fashionprincess = User.create!(
   user_name: "FashionPrincess",
   email: "fashionPrincess@gearshare.com",
-  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  location: ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Fukuoka", "Okinawa"].sample,
   password: "123456"
 )
 puts "User with id :#{fashionprincess.id} has been created"
@@ -35,7 +34,7 @@ puts "User with id :#{fashionprincess.id} has been created"
 outdoorsguy = User.create!(
   user_name: "OutdoorsGuy",
   email: "outdoorsguy@gearshare.com",
-  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  location: ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Fukuoka", "Okinawa"].sample,
   password: "123456"
 )
 puts "User with id :#{outdoorsguy.id} has been created"
@@ -43,7 +42,7 @@ puts "User with id :#{outdoorsguy.id} has been created"
 partykingdom = User.create!(
   user_name: "PartyKingdom",
   email: "partykingdom@gearshare.com",
-  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  location: ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Fukuoka", "Okinawa"].sample,
   password: "123456"
 )
 puts "User with id :#{partykingdom.id} has been created"
@@ -51,38 +50,12 @@ puts "User with id :#{partykingdom.id} has been created"
 ababy = User.create!(
   user_name: "ABaby",
   email: "Ababy@gearshare.com",
-  location: ["Tokyo","Osaka","Kyoto","Nagoya","Fukuoka","Okinawa"].sample,
+  location: ["Tokyo", "Osaka", "Kyoto", "Nagoya", "Fukuoka", "Okinawa"].sample,
   password: "123456"
 )
 puts "User with id :#{ababy.id} has been created"
 
 puts "Creating Products..."
-
-puts "Creating diaper..."
-diaper = Product.create!(
-  name: "Reusable Diaper",
-  description: "Thoughtful Package: Including 6 pack of diapers + 6 inserts + 1 wet bag per pack, 6 different modern patterns. Cute stylish prints for boys & girls. It would be ideal products for the newborns and moms!\n
-  One Size Adjustable Diaper: Three rows of adjustable snaps to allow for a small, medium,large size in one diaper. Usually fit 0-2 years' baby. If you are looking for a pocket diaper to last through your baby’s infancy, toddlerhood and even future babies. Wegreeco baby diapers grow with your baby.\n
-  Soft Exterior: 100% polyester, leek-free and breathable PUL, this kind of soft materials, breathe and better construction diapers help keep your baby comfortable. Double Rows of snaps fit well, the leg gusset can avoid the leaks.\n
-  Absorbent and Soft Insert: Inserts are made of 2 layers of microfiber and 2 layers bamboo, the strong absorbent material with breathability and softness is gentle on your baby’s bottom, keep your baby comfortable and happy. The inner suede cloth touches baby, and wicks moisture away from baby's bottom to the insert.\n
-  Reusable & Washable: As disposable nappies are not great for our planet, these reusable, super-absorbent cloth diapers are an ideal choice, they will last you for a much longer period of time. No need to stock and store multiple size diapers. A great idea for your baby and our planet.",
-  category: "baby",
-  rental_price_day: 500,
-  user: ababy
-)
-
-diaper_photo_urls = [
-  "https://m.media-amazon.com/images/I/617Y79zkpjS._SL1500_.jpg",
-  "https://m.media-amazon.com/images/I/41dwZSsvMKL.jpg",
-  "https://m.media-amazon.com/images/I/61eJR8YY9IL._SL1200_.jpg",
-  "https://m.media-amazon.com/images/I/71pbWNRZdRL._SL1200_.jpg",
-  "https://m.media-amazon.com/images/I/71e5pqOLESL._SL1500_.jpg"
-]
-
-diaper_photo_urls.each_with_index do |url, index|
-  file = URI.open(url)
-  diaper.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
-end
 
 puts "Creating drill..."
 
@@ -208,6 +181,32 @@ youtube_kit_photo_urls.each_with_index do |url, index|
   youtube_kit.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
 end
 
+puts "Creating diaper..."
+diaper = Product.create!(
+  name: "Reusable Diaper",
+  description: "Thoughtful Package: Including 6 pack of diapers + 6 inserts + 1 wet bag per pack, 6 different modern patterns. Cute stylish prints for boys & girls. It would be ideal products for the newborns and moms!\n
+  One Size Adjustable Diaper: Three rows of adjustable snaps to allow for a small, medium,large size in one diaper. Usually fit 0-2 years' baby. If you are looking for a pocket diaper to last through your baby’s infancy, toddlerhood and even future babies. Wegreeco baby diapers grow with your baby.\n
+  Soft Exterior: 100% polyester, leek-free and breathable PUL, this kind of soft materials, breathe and better construction diapers help keep your baby comfortable. Double Rows of snaps fit well, the leg gusset can avoid the leaks.\n
+  Absorbent and Soft Insert: Inserts are made of 2 layers of microfiber and 2 layers bamboo, the strong absorbent material with breathability and softness is gentle on your baby’s bottom, keep your baby comfortable and happy. The inner suede cloth touches baby, and wicks moisture away from baby's bottom to the insert.\n
+  Reusable & Washable: As disposable nappies are not great for our planet, these reusable, super-absorbent cloth diapers are an ideal choice, they will last you for a much longer period of time. No need to stock and store multiple size diapers. A great idea for your baby and our planet.",
+  category: "baby",
+  rental_price_day: 500,
+  user: ababy
+)
+
+diaper_photo_urls = [
+  "https://m.media-amazon.com/images/I/617Y79zkpjS._SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/41dwZSsvMKL.jpg",
+  "https://m.media-amazon.com/images/I/61eJR8YY9IL._SL1200_.jpg",
+  "https://m.media-amazon.com/images/I/71pbWNRZdRL._SL1200_.jpg",
+  "https://m.media-amazon.com/images/I/71e5pqOLESL._SL1500_.jpg"
+]
+
+diaper_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  diaper.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
 puts "Creating hasselblad..."
 
 hasselblad = Product.create!(
@@ -224,11 +223,11 @@ hasselblad = Product.create!(
 )
 
 hasselblad_photo_urls = [
-"https://cdn.hasselblad.com/f/77891/3000x2250/8fcbb61993/x1dii-xcd38v-leaf.jpg",
-"https://cdn.hasselblad.com/f/77891/3000x2250/8c64f2a4cf/x1dii-xcd38v-right.jpg",
-"https://cdn.hasselblad.com/hasselblad-com/85c54cda296a69fdda284108895609a5110d0f20_x1d-ii-rear-display-white.jpg?auto=format&q=97",
-"https://cdn.hasselblad.com/hasselblad-com/fec67206-0c26-4dfe-a764-08a689868b06_Firmware_1.2.0_Video_menues_4000px.jpg?auto=format&q=97&rect=609,0,2778,2667&w=800&h=768",
-"https://cdn.hasselblad.com/f/77891/3000x2250/a8e63dc865/x1dii-xcd38v-top.jpg"
+  "https://cdn.hasselblad.com/f/77891/3000x2250/8fcbb61993/x1dii-xcd38v-leaf.jpg",
+  "https://cdn.hasselblad.com/f/77891/3000x2250/8c64f2a4cf/x1dii-xcd38v-right.jpg",
+  "https://cdn.hasselblad.com/hasselblad-com/85c54cda296a69fdda284108895609a5110d0f20_x1d-ii-rear-display-white.jpg?auto=format&q=97",
+  "https://cdn.hasselblad.com/hasselblad-com/fec67206-0c26-4dfe-a764-08a689868b06_Firmware_1.2.0_Video_menues_4000px.jpg?auto=format&q=97&rect=609,0,2778,2667&w=800&h=768",
+  "https://cdn.hasselblad.com/f/77891/3000x2250/a8e63dc865/x1dii-xcd38v-top.jpg"
 ]
 
 hasselblad_photo_urls.each_with_index do |url, index|
@@ -279,9 +278,9 @@ sigma = Product.create!(
 )
 
 sigma_photo_urls = [
-  "https://www.sigma-global.com/en/wp/wp-content/uploads/2022/04/29154051/kv_pc_ttl_16_28_28_dg_dn_c022-2560x1440.png",
   "https://www.sigma-global.com/en/wp/wp-content/uploads/2022/04/29154245/kv_black_1_16_28_28_dg_dn_c022.jpg",
   "https://www.sigma-global.com/en/wp/wp-content/uploads/2022/04/29154343/kv_black_3_16_28_28_dg_dn_c022-2560x1920.jpg",
+  "https://www.sigma-global.com/en/wp/wp-content/uploads/2022/04/29154051/kv_pc_ttl_16_28_28_dg_dn_c022-2560x1440.png",
   "https://b826082.smushcdn.com/826082/wp-content/uploads/2022/06/Sigma_16_28_28_dg_dn_c022_Emt_horizontal_16mm.jpg?lossy=1&strip=1&webp=1",
   "https://heyjimmy.in/wp-content/uploads/2022/08/Sigma-16-28mm-F2.8-DG-DN-Contemporary-Lens-for-Sony-E-Online-Buy-Mumbai-India.jpg"
 ]
@@ -390,6 +389,195 @@ tripod_photo_urls = [
 tripod_photo_urls.each_with_index do |url, index|
   file = URI.open(url)
   tripod.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating SkiByk..."
+
+ski_bike = Product.create!(
+  name: "SkiByk SB200 All-Mountain Ski Bike",
+  description: "The SB200 will take your SkiBiking to the next level…with full air, hi/lo compression and rebound for both the front fork and rear shock…the SB200 can take whatever you throw at it and come back for more. No Limits to edge control on the steeps, No Limits on ripping up the jumps and the trees and No Limits on carving up the groomers. Whether you are a beginner or an expert Ski Biker, the SB200 has No Limits!",
+  category: "sports",
+  rental_price_day: 7000,
+  user: outdoorsguy
+)
+
+ski_bike_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/sb200.a28f0ab52fec.webp",
+  "https://friendwitha.com/media/CACHE/images/sb200_2.300553075be6.webp",
+  "https://friendwitha.com/media/CACHE/images/skibyk_nom.13da8882aa97.webp"
+]
+
+ski_bike_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  ski_bike.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating Big Bertha..."
+
+big_bertha = Product.create!(
+  name: "Callaway Big Bertha Diablo Men’s Golf Set",
+  description: "Full Callaway set. Rately used. Diablo driver. Big Bertha irons (3-9). Cheaper than you'd get them at a course. Hardly used and comes with a set of golf balls.",
+  category: "sports",
+  rental_price_day: 2000,
+  user: outdoorsguy
+)
+
+big_bertha_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/Screen_Shot_2019-07-02_at_6.25.37_AM.e0c4bbc92079.jpg",
+  "https://friendwitha.com/media/CACHE/images/Screen_Shot_2019-07-02_at_6.25.13_AM.b5412e5bdfe5.jpg",
+  "https://i.ebayimg.com/images/g/UosAAOSwrmdkeh9W/s-l1200.webp"
+]
+
+big_bertha_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  big_bertha.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating KingSong..."
+
+kingsong = Product.create!(
+  name: "KingSong S18",
+  description: "The KingSong S18 Suspension equipped EUC is the Magic Carpet of EUCs.\n
+  If you absolutely positively need to glide over bumps & cracks & holes safely, this EUC is the weapon of choice!\n
+  Also perfect for anyone who'd like to try an EUC before investing in one of course. :) Or make it a family event by renting this EUC and my 2 electric skateboards.",
+  category: "sports",
+  rental_price_day: 4000,
+  user: outdoorsguy
+)
+
+kingsong_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/01_20210528_180433.9e2ce2ca23e4.webp",
+  "https://friendwitha.com/media/CACHE/images/02_20210528_181346.72dd3a44d102.webp",
+  "https://friendwitha.com/media/CACHE/images/03_20210528_180045.651793c46f35.webp",
+  "https://friendwitha.com/media/CACHE/images/04_20210528_180727.23d16c261c10.webp",
+  "https://friendwitha.com/media/CACHE/images/05_20210528_181528.9ca3088266bd.webp"
+]
+
+kingsong_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  kingsong.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating Standup Board..."
+
+standup_board = Product.create!(
+  name: "Standup Paddleboard (SUP)",
+  description: "This s for a Standup Paddleboard.\n
+  The paddle, leash, crossbar pads and straps are included.\n
+  It has been heavily used so you don't have to worry about scratching it up. This is a great board to learn on and very stable.",
+  category: "sports",
+  rental_price_day: 2500,
+  user: outdoorsguy
+)
+
+standup_board_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/SUP_1.eb3d43f3e0e5.webp",
+  "https://friendwitha.com/media/CACHE/images/SUP_2.d101c14224a7.webp"
+]
+
+standup_board_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  standup_board.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating Mini Swell..."
+
+mini_swell = Product.create!(
+  name: "Hurley Mini Swell Electric Fat-Tire Bike",
+  description: "Hurley Mini Swell Electric. Mini Swell offers electric peddle assist and electric throttle control.\n
+  Ideal cruising setup with 3\" tires, 6-speed Shimano gears, disc brakes, and fork suspension.\n
+  40-mile range with speeds up to 20MPH. Wide tires provide great traction and control on all terrain.\n
+  Bikes are not designed for water - riders must use caution to avoid damage.",
+  category: "sports",
+  rental_price_day: 4500,
+  user: outdoorsguy
+)
+
+mini_swell_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/Hurley_Mini_Swell_3.8fd48a57d42e.webp",
+  "https://friendwitha.com/media/CACHE/images/mini_swell_back.440b49c2884b.webp",
+  "https://friendwitha.com/media/CACHE/images/IMG_5057.caa27acbbbfc.webp",
+  "https://friendwitha.com/media/CACHE/images/mini_swell_dimensions.ecfc1887186a.webp",
+  "https://friendwitha.com/media/CACHE/images/mini_swell_bridge.3af7b673f9a9.webp"
+]
+
+mini_swell_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  mini_swell.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating Onewheel..."
+
+onewheel = Product.create!(
+  name: "Onewheel XR with extended CBXR battery",
+  description: "EXTENDED RANGE with the CBXR battery. Has a treaded tire, front fangs, and easier carrying handle.",
+  category: "sports",
+  rental_price_day: 3400,
+  user: outdoorsguy
+)
+
+onewheel_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/16782609411857554050388118610036.75568df0b27a.webp",
+  "https://friendwitha.com/media/CACHE/images/16782610064976086655563241462668.d4c53b8567be.webp",
+  "https://friendwitha.com/media/CACHE/images/16782610277028326575857425031756.e94e6582b58c.webp",
+  "https://friendwitha.com/media/CACHE/images/16782610470824228322828156186693.33b70b101f3d.webp"
+]
+
+onewheel_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  onewheel.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating Ski Boots..."
+
+ski_boots = Product.create!(
+  name: "Back Country Ski Boots Atomic Backland 26",
+  description: "These are the lightest ski boots. The Atomic Backland Carbon Backcountry touring boots are amazing.\n
+  This size is Mondo 26.0/26.5\n
+  - Quick change from uphill to downhill.\n
+  - Boots do not replace knowledge of the back country.\n
+    Rent from me and gain a back country guide.",
+  category: "sports",
+  rental_price_day: 600,
+  user: outdoorsguy
+)
+
+ski_boots_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/IMG_20220126_164842.a71e85e24cc6.webp",
+  "https://friendwitha.com/media/CACHE/images/IMG_20220126_164918.12d8953c6c46.webp",
+  "https://friendwitha.com/media/CACHE/images/IMG_20220126_164806.ae480102e913.webp",
+  "https://friendwitha.com/media/CACHE/images/IMG_20220126_164749.3c13620fe70d.webp"
+]
+
+ski_boots_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  ski_boots.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
+end
+
+puts "Creating Bike Helmet..."
+
+bike_helmet = Product.create!(
+  name: "Freetown Gear & Gravel Lumiere Adult Bike Helmet",
+  description: "LUMIERE is a true one-fits-all helmet solution.\n
+  Built to fit every possible application and improved performance with MIPS™ equipped safety system.\n
+  For added rider safety, the Lumiere includes fully integrated LED lights that allow you to be more visible.\n
+  The Lumiere helmet is built using an injection in-mold process that bonds the helmet shell permanently to the protective foam body.\n
+  The result is a lighter weight helmet with incredible durability for all of your urban adventures.",
+  category: "sports",
+  rental_price_day: 150,
+  user: outdoorsguy
+)
+
+bike_helmet_photo_urls = [
+  "https://friendwitha.com/media/CACHE/images/adult_helmet_front_angle.cb94f8268fb5.webp",
+  "https://friendwitha.com/media/CACHE/images/adult_helmet_interior_view.6bd20859e21c.webp",
+  "https://friendwitha.com/media/CACHE/images/adult_helmet_rear_view.8f03ec79c41c.webp",
+  "https://friendwitha.com/media/CACHE/images/adult_helmet_front_view.939873840a5a.webp"
+]
+
+bike_helmet_photo_urls.each_with_index do |url, index|
+  file = URI.open(url)
+  bike_helmet.photos.attach(io: file, filename: "photo_#{index + 1}.png", content_type: "image/png")
 end
 
 puts "Finished!"

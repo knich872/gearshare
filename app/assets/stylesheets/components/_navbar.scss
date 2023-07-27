@@ -1,6 +1,5 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background:$white;
   z-index: 2;
 }
 
@@ -20,4 +19,8 @@
 
 .dropdown-menu {
   z-index: 2;
+}
+
+.navbar {
+  background-color: #4a6d8c;
 }

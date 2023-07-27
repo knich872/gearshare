@@ -1,0 +1,14 @@
+.btn {
+  background-color: $button-yellow;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: $button-hover;
+}
+
+.btn-red {
+  color: $home-red;
+  text-decoration: none;
+}

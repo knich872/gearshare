@@ -1,45 +1,48 @@
 <div class="house-details">
-        <div class="house-title">
-            <h1><%= @product.name %></h1>
-            <div class="row">
-                <div>
-                    <p>Location: <%= @product.user.location %></p>
-                </div>
-            </div>
-        </div>
-        <div class="gallery">
-          <% @product.photos.each_with_index do |photo, index| %>
-            <% if index == 0 %>
-              <div class="gallery-img-1">
-                <%= cl_image_tag photo.key, width: 400, height: 400, crop: :fit %>
-              </div>
-            <% elsif index <= 4%>
-              <div>
-                <%= cl_image_tag photo.key, width: 200, height:200, crop: :fit %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div>
-          <div class="row">
-            <div class="small-details col-8">
-            <h2>Details</h2>
-            <p>Borrow from <strong><%= @product.user.email.match(/^[^@]+/)[0] %></strong></p>
-            <p><%= @product.description %></p>
-
-          </div>
-          <div class="check-form col-4">
-            <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
-            <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
-              <%= f.submit class: "btn btn-dark" %>
-            <% end %>
-            <hr>
-            <p>You won't be charged yet</p>
-          </div>
-        </div>
-
-        </div>
-        <hr class="line">
+  <div class="house-title">
+    <h1><%= @product.name %></h1>
+    <div class="row">
+      <div>
+        <p>Location: <%= @product.user.location %></p>
+      </div>
     </div>
+  </div>
+  <div class="gallery">
+    <% @product.photos.each_with_index do |photo, index| %>
+      <% if index == 0 %>
+        <div class="gallery-img-1">
+          <%= cl_image_tag photo.key, width: 400, height: 400, crop: :fit %>
+        </div>
+      <% elsif index <= 4%>
+        <div>
+          <%= cl_image_tag photo.key, width: 200, height:200, crop: :fit %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <div class="row">
+      <div class="small-details col-8">
+        <h2>Details</h2>
+        <p>Borrow from <strong><%= @product.user.email.match(/^[^@]+/)[0] %></strong></p>
+        <p><%= @product.description %></p>
+      </div>
+      <div class="check-form col-4" data-controller="booking-amount" data-rental-price-value="<%= @product.rental_price_day.to_i %>">
+        <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
+        <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
+          <%= f.input :start_date, value: Date.today, data: { target: "booking-amount.startDate", action: "change->booking-amount#calculateAmount" } %>
+          <%= f.input :end_date, value: Date.today, data: { target: "booking-amount.endDate", action: "change->booking-amount#calculateAmount" } %>
+          <%= f.submit class: "btn" %>
+        <% end %>
+        <hr>
+        <div class="row">
+          <p>You won't be charged yet</p>
+        </div>
+        <div class="row">
+          <p>Total Amount: <span data-target="booking-amount.totalAmount">¥<%= @product.rental_price_day.to_i %></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="line">
+</div>
