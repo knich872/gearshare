@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+body {
+  background-color: #98b1c8;
+}
+
+.banner {
+  background-image: url(https://news.harvard.edu/wp-content/uploads/2020/03/handshakedefault-1024x683.jpg);
+  background-size: cover;
+  height: 85vh;
+}
+
+.landing-title {
+  color: #d55130;
+  text-shadow: #798ea1 0 0 5px;
+  font-size: 3rem;
+}
+
+#home-search {
+  background-color: #cee3f7;
+}
+
+.btn-home {
+  background-color: #f0b14c;
+}
