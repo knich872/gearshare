@@ -29,11 +29,13 @@
       </div>
       <div class="check-form col-4" data-controller="booking-amount" data-rental-price-value="<%= @product.rental_price_day.to_i %>">
         <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
-        <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
-          <%= f.input :start_date, value: Date.today, data: { target: "booking-amount.startDate", action: "change->booking-amount#calculateAmount" } %>
-          <%= f.input :end_date, value: Date.today, data: { target: "booking-amount.endDate", action: "change->booking-amount#calculateAmount" } %>
+        <div class="">
+        <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" }, data: { controller: 'flatpickr' } do |f| %>
+          <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, data: { target: "booking-amount.startDate", action: "change->booking-amount#calculateAmount" } %>
+          <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' }, data: { target: "booking-amount.endDate", action: "change->booking-amount#calculateAmount" } %>
           <%= f.submit class: "btn" %>
         <% end %>
+        </div>
         <hr>
         <div class="row">
           <p>You won't be charged yet</p>
