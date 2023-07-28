@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(user: current_user)
+    @bookings = Booking.all.order(:status)
     # raise
   end
 
@@ -18,8 +19,14 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to owners_bookings_path
+
+    if @booking.accepted? && booking_params[:status] == 'completed'
+      @booking.update(booking_params)
+      redirect_to owners_bookings_path, notice: "Booking was successfully updated."
+    else
+      # Handle the case when the booking is not accepted or status is not 'completed'
+      redirect_to owners_bookings_path, alert: "You can only update 'Complete' status from 'Accept' booking status."
+    end
   end
 
   private

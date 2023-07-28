@@ -6,7 +6,7 @@
       <%= link_to product_path(booking.product), class: "list-group-item list-group-item-action", aria_current: "true" do %>
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1"><%= booking.product.name %></h5>
-          <small><%= booking.status %></small>
+          <p class='booking-tag'><strong><%= booking.status %></strong></p>
         </div>
         <p class="mb-1">Booked from <%= booking.start_date %> until <%= booking.end_date %></p>
         <p class="mb-1">¥ <%= booking.product.rental_price_day %> x <%= duration.to_i %> days = <strong>¥ <%= booking.product.rental_price_day * duration %></strong></p>

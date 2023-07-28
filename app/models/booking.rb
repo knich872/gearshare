@@ -9,6 +9,10 @@ class Booking < ApplicationRecord
     status == 'pending'
   end
 
+  def accepeted?
+    status == 'accepted'
+  end
+
   private
 
   def valid_dates
