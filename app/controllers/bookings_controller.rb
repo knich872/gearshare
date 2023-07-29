@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.where(user: current_user)
-    # raise
+    @bookings = Booking.where(user: current_user).order(:start_date, :status)
   end
 
   def create
@@ -9,6 +8,7 @@ class BookingsController < ApplicationController
     @product = Product.find(params[:product_id])
     @booking.product = @product
     @booking.user = current_user
+    @booking.chatroom = Chatroom.create
     if @booking.save
       redirect_to bookings_path, :notice => "Successfully created booking."
     else
@@ -18,8 +18,10 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+
+    @booking.accepted?
     @booking.update(booking_params)
-    redirect_to owners_bookings_path
+    redirect_to owners_bookings_path, notice: "Booking was successfully updated."
   end
 
   private

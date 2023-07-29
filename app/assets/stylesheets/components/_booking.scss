@@ -1,0 +1,60 @@
+a.list-group-item.list-group-item-action {
+  margin: 2px;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px $orange;
+}
+
+
+.booking-actions {
+  display: flex;
+  align-items: center;
+}
+
+.booking-tag {
+margin: 1px 4px;
+padding: 2px 5px 0px 5px;
+background-color: #0f0d0d;
+color: $orange;
+border-radius: 5px;
+font-weight: lighter;
+font-size: 20px;
+}
+
+.btn-accept {
+  background-color:$orange;
+  border-radius: 5px;
+  font-size: 20px;
+
+}
+
+.btn-reject {
+  background-color: rgb(196, 196, 195);
+  border-radius: 5px;
+  font-size: 20px;
+}
+.btn-complete {
+  background-color: rgb(197, 201, 232);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.btn-accept:hover {
+  transform: scale(1.3);
+  opacity: 1;
+  cursor:pointer;
+}
+
+.btn-reject:hover {
+  transform: scale(1.3);
+  opacity: 1;
+  cursor:pointer;
+}
+
+.btn-complete:hover {
+  transform: scale(1.3);
+  opacity: 1;
+  cursor:pointer;
+}

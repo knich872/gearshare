@@ -1,33 +1,36 @@
 <div class="container my-2">
   <div class="list-group">
+    <h1>Bookings for your products</h1>
     <% @bookings.each do |booking| %>
-    <% duration = booking.end_date - booking.start_date + 1 %>
+      <% duration = booking.end_date - booking.start_date + 1 %>
       <%= link_to product_path(booking.product), class: "list-group-item list-group-item-action", aria_current: "true" do %>
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1"><%= booking.product.name %></h5>
-          <small><%= booking.status %></small>
+          <p class='booking-tag'><strong><%= booking.status %></strong></p>
         </div>
         <p class="mb-1">Booked from <%= booking.start_date %> until <%= booking.end_date %></p>
         <p class="mb-1">¥ <%= booking.product.rental_price_day %> x <%= duration.to_i %> days = <strong>¥ <%= booking.product.rental_price_day * duration %></strong></p>
         <small><%= booking.product.category %></small>
       <% end %>
       <div class="booking-actions">
-
+        <% if booking.accepted?%>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'complete' } %>
+            <%= f.submit 'Complete', class: 'btn-complete' %>
+          <% end %>
+        <% end %>
         <% if booking.pending? %>
-        <div class="d-flex">
           <%= simple_form_for booking do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-            <%= f.submit 'Accept', class: 'btn btn-info' %>
+            <%= f.submit 'Accept', class: 'btn-accept' %>
           <% end %>
           <%= simple_form_for booking do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-            <%= f.submit 'Reject', class: 'btn btn-light' %>
+            <%= f.submit 'Reject', class: 'btn-reject' %>
           <% end %>
-          <% else %>
-          <p class='booking-tag'><%= booking.status %></p>
-          <% end %>
-        </div>
-      <% end %>
-</div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 </div>
