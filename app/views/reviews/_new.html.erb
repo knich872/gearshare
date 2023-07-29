@@ -1,0 +1,4 @@
+<%= simple_form_for [product, review], data: { action:"submit->add-review#create" } do |f| %>
+  <%= f.input :content, as: :text, label: false %>
+  <%= f.submit class: 'btn mt-2' %>
+<% end %>

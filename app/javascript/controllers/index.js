@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddReviewController from "./add_review_controller"
+application.register("add-review", AddReviewController)
+
 import BookingAmountController from "./booking_amount_controller"
 application.register("booking-amount", BookingAmountController)
 
