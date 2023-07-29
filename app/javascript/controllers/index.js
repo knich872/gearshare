@@ -4,8 +4,6 @@
 
 import { application } from "./application"
 
-import AddReviewController from "./add_review_controller"
-application.register("add-review", AddReviewController)
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
