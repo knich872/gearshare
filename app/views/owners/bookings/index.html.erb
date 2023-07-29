@@ -1,4 +1,4 @@
-<div class="container my-2">
+<div class="absolute-container" >
   <div class="list-group">
     <h1>Bookings for your products</h1>
     <% @bookings.each do |booking| %>
@@ -28,9 +28,9 @@
             <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
             <%= f.submit 'Reject', class: 'btn-reject' %>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </div>
+      <% end %>
 </div>
+<footer class="absolute-footer"></footer>
 </div>
