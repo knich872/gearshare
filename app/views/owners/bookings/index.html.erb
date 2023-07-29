@@ -16,12 +16,12 @@
 
       <div class="booking-actions">
         <% if booking.accepted?%>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'completed' } %>
-            <%= f.submit 'Complete', class: 'btn-complete' %>
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'complete' } %>
+              <%= f.submit 'Complete', class: 'btn-complete' %>
+            <% end %>
           <% end %>
-        <% end %>
-        <%  if booking.pending?  %>
+        <% if booking.pending? %>
           <%= simple_form_for booking do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
             <%= f.submit 'Accept', class: 'btn-accept' %>
