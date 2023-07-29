@@ -11,12 +11,16 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   # a regular user can see the bookings they've made
   resources :bookings, only: [:show, :index, :update]
 
   # an owner can see all the bookings for their products
   namespace :owners do
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index, :show]
     # equivalent to => get '/owners/bookings', to: 'owners/bookings#index'
   end
 end
