@@ -43,6 +43,20 @@
         </div>
       </div>
     </div>
+    <div data-controller="add-review" data-add-review-product-id-value="<%= @product.id %>">
+        <div>
+          <%= render "reviews/new", product: @product, review: Review.new %>
+        </div>
+        <div data-add-review-target="reviews">
+          <% if @product.reviews.any? %>
+
+            <%= render @product.reviews.order(created_at: :desc) %>
+
+          <% else %>
+            <p class="py-4">No reviews yet.</p>
+          <% end %>
+        </div>
+      </div>
   </div>
   <hr class="line">
 </div>

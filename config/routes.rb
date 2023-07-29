@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :products, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:new, :create]
     collection do
       get :cameras
       get :clothes
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
       get :tools
       get :baby
     end
+    resources :reviews, only: [:destroy]
   end
 
   # a regular user can see the bookings they've made
