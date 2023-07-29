@@ -3,7 +3,7 @@
   <div class="list-group">
     <% @bookings.each do |booking| %>
     <% duration = booking.end_date - booking.start_date + 1 %>
-      <%= link_to product_path(booking.product), class: "list-group-item list-group-item-action", aria_current: "true" do %>
+      <%= link_to product_path(booking.product), class: "list-group-item list-group-item-action card-blue", aria_current: "true" do %>
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1"><%= booking.product.name %></h5>
           <p class='booking-tag'><strong><%= booking.status %></strong></p>

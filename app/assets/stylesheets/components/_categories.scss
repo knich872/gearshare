@@ -13,7 +13,7 @@
 
 .btn-icon:hover {
   box-shadow: 0 5px 5px $dark-gray;
-  color: $gray;
+  color: $home-red;
   transform: scale(1.3);
   opacity: 1;
   cursor:pointer;
@@ -42,7 +42,7 @@
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: $yellow;
+  background: $button-yellow;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
