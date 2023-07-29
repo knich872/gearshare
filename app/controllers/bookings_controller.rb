@@ -1,8 +1,6 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(user: current_user).order(:start_date, :status)
-    # raise
-    @pagy = pagy(@bookings, items: 5)
   end
 
   def create
