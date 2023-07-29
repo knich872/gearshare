@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :product
   belongs_to :user
+  # has_one :chatroom
   enum status: {pending: "pending", accepted: "accepted", rejected: "rejected", canceled: "canceled", complete: "complete"}, _default: "pending"
   validates :start_date, :end_date, :user, :product, presence: true
   validate :valid_dates

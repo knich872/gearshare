@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       @products = @products.where(category: params[:filter])
     end
 
-    @pagy, @products = pagy((@products), items: 12)
+    @pagy, @products = pagy(@products, items: 12)
   end
 
   def show
