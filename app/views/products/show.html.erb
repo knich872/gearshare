@@ -27,21 +27,21 @@
         <p>Borrow from <strong><%= @product.user.email.match(/^[^@]+/)[0] %></strong></p>
         <p><%= @product.description %></p>
       </div>
-      <div class="check-form col-4" data-controller="booking-amount" data-rental-price-value="<%= @product.rental_price_day.to_i %>">
+      <div class="check-form col-4" data-controller="flatpickr">
+        <div data-rental-price-value="<%= @product.rental_price_day.to_i %>"></div>
         <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
-        <div class="">
-        <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" }, data: { controller: 'flatpickr' } do |f| %>
-          <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, data: { target: "booking-amount.startDate", action: "change->booking-amount#calculateAmount" } %>
-          <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' }, data: { target: "booking-amount.endDate", action: "change->booking-amount#calculateAmount" } %>
-          <%= f.submit class: "btn" %>
-        <% end %>
+        <div class="row">
+          <%= simple_form_for [@product, @booking], html: { class: "border-bottom mb-3, pb-3" } do |f| %>
+            <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime", action: "change->flatpickr#calculateAmount" }} %>
+            <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "change->flatpickr#calculateAmount" }} %>
+            <%= f.submit class: "btn" %>
+          <% end %>
         </div>
-        <hr>
         <div class="row">
           <p>You won't be charged yet</p>
         </div>
         <div class="row">
-          <p>Total Amount: <span data-target="booking-amount.totalAmount">¥<%= @product.rental_price_day.to_i %></span></p>
+          <p>Total Amount: <span data-target="flatpickr.totalAmount">¥<%= @product.rental_price_day.to_i %></span></p>
         </div>
       </div>
     </div>
