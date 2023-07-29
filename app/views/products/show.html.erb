@@ -22,12 +22,12 @@
   </div>
   <div>
     <div class="row">
-      <div class="small-details col-8">
+      <div class="small-details col-9">
         <h2>Details</h2>
         <p>Borrow from <strong><%= @product.user.email.match(/^[^@]+/)[0] %></strong></p>
         <p><%= @product.description %></p>
       </div>
-      <div class="check-form col-4" data-controller="flatpickr">
+      <div class="check-form col-3" data-controller="flatpickr">
         <div data-rental-price-value="<%= @product.rental_price_day.to_i %>"></div>
         <h3>¥<%= @product.rental_price_day.to_i %> </h3> day
         <div class="row">
@@ -41,7 +41,7 @@
           <p>You won't be charged yet</p>
         </div>
         <div class="row">
-          <p>Total Amount: <span data-target="flatpickr.totalAmount">¥<%= @product.rental_price_day.to_i %></span></p>
+          <p>Total Amount: <strong><span data-target="flatpickr.totalAmount">¥<%= @product.rental_price_day.to_i %></span></strong></p>
         </div>
       </div>
     </div>
