@@ -4,7 +4,7 @@ a.list-group-item.list-group-item-action {
   margin: 1em 0;
   color: #232323;
   background: #fff8e8;
-  border-left: solid 10px #ffc06e;
+  border-left: solid 10px $orange;
 }
 
 
@@ -17,14 +17,14 @@ a.list-group-item.list-group-item-action {
 margin: 1px 4px;
 padding: 2px 5px 0px 5px;
 background-color: #0f0d0d;
-color: rgb(234, 180, 4);
+color: $orange;
 border-radius: 5px;
 font-weight: lighter;
 font-size: 20px;
 }
 
 .btn-accept {
-  background-color: rgb(234, 180, 4);
+  background-color:$orange;
   border-radius: 5px;
   font-size: 20px;
 
