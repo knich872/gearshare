@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   has_many :bookings
   has_many_attached :photos
-  has_many :reviews, dependent: :destroy
   belongs_to :user
   enum category: [:cameras, :clothes, :appliances, :jewelry, :sports, :outdoors, :events, :transportation, :tools, :baby]
   validates :name, :description, :rental_price_day, :category, presence: true
