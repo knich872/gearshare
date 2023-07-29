@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(user: current_user)
+    @bookings = Booking.all.order(:start_date, :status)
     # raise
   end
 
@@ -18,8 +19,10 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+
+    @booking.accepted?
     @booking.update(booking_params)
-    redirect_to owners_bookings_path
+    redirect_to owners_bookings_path, notice: "Booking was successfully updated."
   end
 
   private
