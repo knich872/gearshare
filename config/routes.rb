@@ -9,18 +9,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :products, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:create]
-    collection do
-      get :cameras
-      get :clothes
-      get :appliances
-      get :jewelry
-      get :sports
-      get :outdoors
-      get :events
-      get :transportation
-      get :tools
-      get :baby
-    end
   end
 
   # a regular user can see the bookings they've made
