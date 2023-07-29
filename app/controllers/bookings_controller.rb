@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @product = Product.find(params[:product_id])
     @booking.product = @product
     @booking.user = current_user
-    @booking.chatroom = Chatroom.create
+    # @booking.chatroom = Chatroom.create
     if @booking.save
       redirect_to bookings_path, :notice => "Successfully created booking."
     else
